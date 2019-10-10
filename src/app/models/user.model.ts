@@ -1,5 +1,5 @@
 export class UserModel{
-    fistName: String;
+    firstName: String;
     secondName: String;
     firstLastname: String;
     secondLastname: String;

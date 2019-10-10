@@ -1,10 +1,13 @@
 <nav>
-    ><strong *ngIf="userLogged">{{userName}}</strong>
+    
     <div class="nav-wrapper blue">
       <a routerLink="/home" class="brand-logo">Hotel</a>
       <a href="#" data-target="mobile-Hotel" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+        <strong  *ngIf="userLogged">{{userName}}</strong>
         <li *ngIf="!userLogged"><a routerLink="security/Login">Login</a></li>
+        <li *ngIf="userLogged"><a routerLink="security/Logout">Country</a></li>
+        <li *ngIf="userLogged"><a routerLink="security/Logout">Rooms</a></li>
         <li *ngIf="userLogged"><a routerLink="security/Logout">Logout</a></li>
       </ul>
     </div>

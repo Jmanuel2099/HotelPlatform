@@ -16,7 +16,8 @@ import { PageNotFoundComponent } from './public/page-not-found/page-not-found.co
     HeroComponent,
     FooterComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    
   ],
   imports: [
     BrowserModule,
