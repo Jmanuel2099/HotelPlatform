@@ -19,6 +19,14 @@ const routes: Routes = [
     loadChildren: './modules/security/security.module#SecurityModule'
   },
   {
+    path:'country',
+    loadChildren: './modules/parameters/country/country.module#CountryModule'
+  },
+  {
+    path:'city',
+    loadChildren: './modules/parameters/city/city.module#CityModule'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }

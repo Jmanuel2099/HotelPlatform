@@ -6,8 +6,8 @@
       <ul class="right hide-on-med-and-down">
         <strong  *ngIf="userLogged">{{userName}}</strong>
         <li *ngIf="!userLogged"><a routerLink="security/Login">Login</a></li>
-        <li *ngIf="userLogged"><a routerLink="security/Logout">Country</a></li>
-        <li *ngIf="userLogged"><a routerLink="security/Logout">Rooms</a></li>
+        <li *ngIf="userLogged"><a routerLink="country/List">Country</a></li>
+        <li *ngIf="userLogged"><a routerLink="city/List">City</a></li>
         <li *ngIf="userLogged"><a routerLink="security/Logout">Logout</a></li>
       </ul>
     </div>
