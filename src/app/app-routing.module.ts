@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './public/home/home.component';
 import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
+import { AuthenticationRequiredGuard } from './helpers/guards/authentication-required.guard';
 
 
 const routes: Routes = [
@@ -16,11 +17,13 @@ const routes: Routes = [
   },
   {
     path:'security',
-    loadChildren: './modules/security/security.module#SecurityModule'
+    loadChildren: './modules/security/security.module#SecurityModule',
+    canActivateChild:[]
   },
   {
     path:'country',
-    loadChildren: './modules/parameters/country/country.module#CountryModule'
+    loadChildren: './modules/parameters/country/country.module#CountryModule',
+    canActivate:[AuthenticationRequiredGuard]
   },
   {
     path:'city',
