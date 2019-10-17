@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SecurityService } from 'src/app/Services/security.service';
 import { Router } from '@angular/router';
 
+declare var openPlatformModalMessage: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +27,7 @@ fgValidationBuilder(){
 
 loginEvent(){
   if(this.fgValidation.invalid){
-    alert("Invalid data")
+    alert("Error data")
   }else{
     let u= this.fg.username.value;
     let p= this.fg.password.value;
@@ -33,6 +35,8 @@ loginEvent(){
     if(user != null){
       console.log(user);
       this.router.navigate(['/home']);
+    }else{
+      openPlatformModalMessage('The data is not valid !');
     }
   }
 }
