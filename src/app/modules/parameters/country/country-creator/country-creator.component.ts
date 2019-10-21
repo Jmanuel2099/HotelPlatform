@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CountryService } from 'src/app/Services/country.service';
+import { Router } from '@angular/router';
+
+declare let openPlatformModalMessage: any;
 
 @Component({
   selector: 'app-country-creator',
@@ -7,9 +12,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountryCreatorComponent implements OnInit {
 
-  constructor() { }
+  frmValidator: FormGroup;
+  
+
+
+  constructor( private fb: FormBuilder, private countryService: CountryService, private router: Router) { }
 
   ngOnInit() {
+    this.formGenerator();
+  }
+
+  get fv(){
+    return this.frmValidator.controls;
+  }
+
+  formGenerator(){
+    this.frmValidator= this.fb.group({
+      code:['',[Validators.required]],
+      name:['',[Validators.required, Validators.minLength(4)]]
+    })
+  }
+
+  saveCountry(){
+    if (this.frmValidator.invalid){
+        openPlatformModalMessage("The form is invalid!") 
+    }else{
+      let saved= this.countryService.saveNewCountry(this.fv.code.value, this.fv.name.value);
+      if(saved == 1){
+        openPlatformModalMessage("Data stored successfully. ") 
+        this.router.navigate(['country/List'])
+      }else{
+        if(saved == 2){
+          openPlatformModalMessage("The country with this code already exist")
+        }else{
+        openPlatformModalMessage("Error storing data") 
+      }
+    }
+    }
   }
 
 }

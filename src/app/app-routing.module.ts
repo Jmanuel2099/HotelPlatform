@@ -27,7 +27,8 @@ const routes: Routes = [
   },
   {
     path:'city',
-    loadChildren: './modules/parameters/city/city.module#CityModule'
+    loadChildren: './modules/parameters/city/city.module#CityModule',
+    canActivate:[AuthenticationRequiredGuard]
   },
   {
     path: '**',
