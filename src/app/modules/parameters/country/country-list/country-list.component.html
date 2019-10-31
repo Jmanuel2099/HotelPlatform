@@ -42,3 +42,20 @@
     </tbody>
 </table>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<div id="modalConfirmation" class="modal">
+    <div class="modal-content">
+      <h4>Confirmation Window </h4>
+      <p> Do you confirm remove this elemnt</p>
+    </div>
+    <div class="modal-footer">
+        <a  class="modal-close waves-effect waves-light btn red">Cancel</a>&nbsp;
+        <a  class="modal-close waves-effect waves-light btn green" (click)="removeElemnt()">Confirm</a>
+    </div>
+  </div>
+
+
+
+
+
+  

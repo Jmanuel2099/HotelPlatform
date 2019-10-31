@@ -60,4 +60,17 @@ saveListInLocalStorage(list){
   localStorage.setItem("tb_country", JSON.stringify(list));
 }
 
+deleteCountry(code:String){
+  let countries = this.loadAllCountries();
+  let index = -1;
+  countries.forEach((c, i) => {
+    if (c.code == code) {
+      index = i;
+    }
+  });
+  //console.log(index);
+  countries.splice(index, 1);
+  this.saveListInLocalStorage(countries);
+}
+
 }
